@@ -1,4 +1,4 @@
-# Biomechanic_Hand_Data_Visualization
+# Biomechanic Hand Data Visualization
 
 python visualize_data.py \<option\> \<file\>
 
