@@ -4,6 +4,52 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
+def plotIMU(file):
+    w,x,y,z = [],[],[],[]
+    line_num = 0
+
+    for line in file:
+        if(line_num > 1):
+            line_array = line.split('\t')
+            w.append(float(line_array[1]))
+            x.append(float(line_array[2]))
+            y.append(float(line_array[3]))
+            z.append(float(line_array[4]))
+
+        line_num += 1
+
+    #max_yticks = 8
+    #yloc = plt.MaxNLocator(max_yticks)
+
+    fig_size = plt.rcParams["figure.figsize"]
+    fig_size[0] = 8.5
+    fig_size[1] = 7.7
+    plt.rcParams["figure.figsize"] = fig_size
+
+    f, (ax1, ax2, ax3, ax4) = plt.subplots(4, sharex=True, sharey=False)
+    f.canvas.set_window_title('Ensayo IMU')
+
+    #ax1.yaxis.set_major_locator(yloc)
+    #ax2.yaxis.set_major_locator(yloc)
+    #ax3.yaxis.set_major_locator(yloc)
+    #ax4.yaxis.set_major_locator(yloc)
+
+    ax1.plot(w, label="w" ,linewidth=1)
+    ax1.legend(loc=4)
+
+    ax2.plot(x, label="x" ,linewidth=1)
+    ax2.legend(loc=4)
+
+    ax3.plot(y, label="y" ,linewidth=1)
+    ax3.legend(loc=4)
+
+    ax4.plot(z, label="z" ,linewidth=1)
+    ax4.legend(loc=4)
+
+    plt.subplots_adjust(bottom=0.05, left=0.09, top=0.97, hspace=0.00, right=0.96)
+    plt.show()
+
+
 def plotVMG30(file):
     f11,f12,f21,f22,f31,f32,f41,f42,f51,f52,abd1,abd2,abd3,abd4,pa,tco,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,hroll,hpitch,hyaw,wroll,wpitch,wyaw = [],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
     line_num = 0
@@ -223,6 +269,8 @@ def main():
         plotCyberH(file)
     elif(op=="vmg30"):
         plotVMG30(file)
+    elif(op=="imu"):
+        plotIMU(file)
     else:
         print("Unsuported operation: " + op)
 
