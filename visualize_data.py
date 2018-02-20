@@ -4,6 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
+def getYTicksAxis(array):
+    array=[float(x) for x in array]
+    return [(min(array) + (min(array) + (min(array) + max(array)) / 2) / 2) / 2, (min(array) + max(array)) / 2, (max(array) + (max(array) + (min(array) + max(array)) / 2) / 2) / 2]
+
 def plotIMU(file):
     w,x,y,z = [],[],[],[]
     line_num = 0
@@ -26,6 +30,7 @@ def plotIMU(file):
     fig_size[1] = 7.7
     plt.rcParams["figure.figsize"] = fig_size
 
+
     f, (ax1, ax2, ax3, ax4) = plt.subplots(4, sharex=True, sharey=False)
     f.canvas.set_window_title('Ensayo IMU')
 
@@ -35,15 +40,19 @@ def plotIMU(file):
     #ax4.yaxis.set_major_locator(yloc)
 
     ax1.plot(w, label="w" ,linewidth=1)
+    ax1.set_yticks(getYTicksAxis(w))
     ax1.legend(loc=4)
 
     ax2.plot(x, label="x" ,linewidth=1)
+    ax2.set_yticks(getYTicksAxis(x))
     ax2.legend(loc=4)
 
     ax3.plot(y, label="y" ,linewidth=1)
+    ax3.set_yticks(getYTicksAxis(y))
     ax3.legend(loc=4)
 
     ax4.plot(z, label="z" ,linewidth=1)
+    ax4.set_yticks(getYTicksAxis(z))
     ax4.legend(loc=4)
 
     plt.subplots_adjust(bottom=0.05, left=0.09, top=0.97, hspace=0.00, right=0.96)
