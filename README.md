@@ -9,8 +9,8 @@ This version uses the matploitlib for making and showing the plot
 -python 3+
 
 -matploitlib:
-	* python -mpip install matplotlib
-
+  * python -mpip install matplotlib
+  
 ### Usage
 
 python visualize_data.py \<option\> \<file\>
@@ -36,7 +36,7 @@ This version uses leather for making the plot as svg file and shows it with the 
 -python 3+
 
 -leather:
-	* pip install leather
+  *  pip install leather
 
 ### Usage
 
