@@ -6,10 +6,10 @@ This version uses the matploitlib for making and showing the plot
 
 ### Dependecies
 
--python 3+
+  * python 3+
 
--matploitlib:
-  * python -mpip install matplotlib
+  * matploitlib:
+    * python -mpip install matplotlib
   
 ### Usage
 
@@ -33,10 +33,10 @@ This version uses leather for making the plot as svg file and shows it with the 
 
 ### Dependecies
 
--python 3+
+  * python 3+
 
--leather:
-  *  pip install leather
+  * leather:
+    *  pip install leather
 
 ### Usage
 
