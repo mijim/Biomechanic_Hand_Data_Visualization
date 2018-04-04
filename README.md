@@ -31,6 +31,8 @@ Example usage3: python visualize_data.py imu data_example/imu/Ensayo_1_IMU.txt
 
 This version uses leather for making the plot as svg file and shows it with the default browser.
 
+![alt text](https://i.imgur.com/wZyZjAk.png)
+
 ### Dependencies
 
   * python 3+
